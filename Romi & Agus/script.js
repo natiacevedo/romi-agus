@@ -286,44 +286,45 @@ document.addEventListener("DOMContentLoaded", () => {
         estado.className = "estado";
         estado.textContent = "Enviando confirmación...";
 
-        // Envío mediante Google Apps Script
-        if (
-            typeof google === "undefined" ||
-            !google.script?.run
-        ) {
-            estado.className = "estado error";
+       
+        // Enviar confirmación mediante Netlify
+        fetch("/.netlify/functions/confirmacion", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datos)
+        })
+        .then(async (respuesta) => {
+            const resultado = await respuesta.json();
+
+            if (!respuesta.ok || !resultado.ok) {
+                throw new Error(
+                    resultado.error || "Error al guardar la confirmación."
+                );
+            }
+
+            return resultado;
+        })
+        .then(() => {
+            estado.className = "estado exito";
             estado.textContent =
-                "No se pudo conectar con el sistema de confirmaciones.";
+                "¡Gracias! Tu respuesta quedó registrada correctamente.";
+
+            formulario.reset();
+            actualizar();
 
             btn.disabled = false;
-            return;
-        }
+        })
+        .catch((error) => {
+            console.error("Error al enviar:", error);
 
-        google.script.run
-            .withSuccessHandler(() => {
+            estado.className = "estado error";
+            estado.textContent =
+                "No pudimos guardar tu respuesta. Intentá nuevamente.";
 
-                estado.className = "estado exito";
-                estado.textContent =
-                    "¡Gracias! Tu respuesta quedó registrada correctamente.";
-
-                formulario.reset();
-                actualizar();
-
-                btn.disabled = false;
-
-            })
-            .withFailureHandler((error) => {
-
-                estado.className = "estado error";
-
-                estado.textContent =
-                    "No pudimos guardar la respuesta. Intentá nuevamente. " +
-                    (error?.message || "");
-
-                btn.disabled = false;
-
-            })
-            .guardarConfirmacion(datos);
+            btn.disabled = false;
+        });
 
     });
 
