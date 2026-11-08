@@ -1,9 +1,3 @@
-/* ==========================================================
-   ROMI & AGUS · INVITACIÓN
-   Hoja de estilos organizada según las secciones del HTML.
-   Breakpoints: tablet <= 991px, mobile <= 600px.
-========================================================== */
-
 /* 01. VARIABLES Y BASE ------------------------------------- */
 :root {
   --negro: #0e0e0e;
@@ -75,7 +69,7 @@ h4 {
 .portada-boda {
   position: relative;
   width: 100%;
-  height: 65vh;
+  height: 85vh;
   overflow: hidden;
 }
 
