@@ -1,0 +1,785 @@
+/* ==========================================================
+   ROMI & AGUS · INVITACIÓN
+   Hoja de estilos organizada según las secciones del HTML.
+   Breakpoints: tablet <= 991px, mobile <= 600px.
+========================================================== */
+
+/* 01. VARIABLES Y BASE ------------------------------------- */
+:root {
+  --negro: #0e0e0e;
+  --beige: #fefdfa;
+  --blanco: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--beige);
+  background-image: url("img/textura.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 600px auto;
+  color: var(--negro);
+  overflow-x: hidden;
+}
+
+/* 02. TIPOGRAFÍAS ------------------------------------------ */
+@font-face {
+  font-family: "Luxes Serif";
+  src: url("fonts/LaLuxes-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.baskervville-normal {
+  font-family: "Baskervville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.the-seasons,
+p,
+.time,
+h6 {
+  font-family: "the-seasons", serif;
+}
+
+h2,
+h3,
+h4 {
+  font-family: "Luxes Serif", serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 17px;
+  letter-spacing: 4px;
+  text-align: center;
+  margin: 5px 0 0;
+}
+
+/* 03. PORTADA PRINCIPAL ------------------------------------ */
+.invitacion-boda {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background-color: transparent;
+}
+
+.portada-boda {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  overflow: hidden;
+}
+
+.portada-boda img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.texto-portada {
+  position: absolute;
+  bottom: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  color: var(--blanco);
+}
+
+.nombres {
+  font-family: "bickham-script-pro-3", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 80px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0;
+}
+
+.flecha-abajo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blanco);
+  text-decoration: none;
+  cursor: pointer;
+  animation: flechaFlotante 2s ease-in-out infinite;
+}
+
+@keyframes flechaFlotante {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* 04. REPRODUCTOR DE MÚSICA -------------------------------- */
+.musica-boda {
+  padding: 22px 20px 28px;
+  background-color: transparent;
+  text-align: center;
+}
+
+.musica-boda audio {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* 05. SECCIÓN PRINCIPAL Y CUENTA REGRESIVA ------------------ */
+.altura {
+  background-color: transparent;
+  min-height: 90vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+#countdown .time span {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#countdown .time small {
+  font-size: 0.8rem;
+}
+
+/* 06. BOTONES ---------------------------------------------- */
+.button {
+  display: inline-block;
+  color: var(--negro);
+  background-color: transparent;
+  border: 1px solid var(--negro);
+  font-family: "the-seasons", serif;
+  font-weight: normal;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 10px auto;
+  border-radius: 15px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.button:hover {
+  background-color: var(--negro);
+  color: var(--blanco);
+  border: 1px solid var(--negro);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* 07. CELEBRACIÓN, FECHA Y VESTIMENTA ----------------------- */
+.celebracion {
+  margin-top: 100px;
+}
+
+.celebracion h2 {
+  margin-bottom: 10px;
+}
+
+.titulo {
+  font-size: 24px;
+}
+
+.fecha-evento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  padding: 20px 15px;
+  margin-bottom: 10px;
+}
+
+.fecha,
+.hora {
+  font-size: 40px;
+  font-weight: 300;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.separador {
+  width: 1px;
+  height: 120px;
+  flex-shrink: 0;
+  background-color: #bcbcbc;
+}
+
+.hora span {
+  font-size: 20px;
+}
+
+/* 08. REGALOS: MODAL Y COPIAR ------------------------------- */
+.modal-regalos {
+  border: none;
+  border-radius: 18px;
+  padding: 15px;
+  background: #fff;
+}
+
+.modal-regalos .modal-header {
+  align-items: center;
+}
+
+.modal-regalos .modal-body {
+  padding: 15px 10px 25px;
+}
+
+.btn-copiar {
+  background: transparent;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin-left: 6px;
+  font-size: 12px;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copiar:hover {
+  background: #f0ece6;
+}
+
+.btn-copiar:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* 09. GALERÍA ---------------------------------------------- */
+.galeria-personalizada {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.galeria-personalizada .galeria-foto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 13px;
+  aspect-ratio: 3 / 4;
+  background: #eee;
+  cursor: pointer;
+}
+
+.galeria-personalizada .galeria-ancha {
+  grid-column: span 2;
+  aspect-ratio: 1.7 / 1;
+}
+
+.galeria-personalizada img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galeria-personalizada .galeria-foto img {
+  transition: transform 0.3s ease;
+}
+
+.galeria-personalizada .galeria-foto:hover img {
+  transform: scale(1.03);
+}
+
+/* 10. VISOR DE FOTOGRAFÍAS --------------------------------- */
+.visor-galeria {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.visor-galeria.activo {
+  display: flex;
+}
+
+#imagenAmpliada {
+  max-width: 85vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.18);
+}
+
+.visor-cerrar,
+.visor-anterior,
+.visor-siguiente {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  font-size: 25px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease;
+}
+
+.visor-cerrar:hover,
+.visor-anterior:hover,
+.visor-siguiente:hover {
+  background: #eaeaea;
+}
+
+.visor-cerrar {
+  top: 25px;
+  right: 25px;
+  font-size: 34px;
+}
+
+.visor-anterior {
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.visor-siguiente {
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 11. FORMULARIO RSVP -------------------------------------- */
+.formulario {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  border: 1px solid #393939;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.formulario,
+.formulario p,
+.formulario label,
+.formulario legend,
+.formulario input,
+.formulario textarea,
+.formulario button,
+.formulario .subtitulo,
+.formulario .estado {
+  font-family: "the-seasons", serif;
+}
+
+.formulario h2 {
+  font-family: "Luxes Serif", serif;
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+
+.subtitulo {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #393939;
+}
+
+.intro {
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.campo {
+  margin: 0 0 22px;
+}
+
+label,
+legend {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+input[type="text"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--negro);
+  background: #fff;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 15px;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #aaa;
+  outline-offset: 1px;
+}
+
+fieldset {
+  padding: 0;
+  border: none;
+  margin-bottom: 24px;
+}
+
+.opcion {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 18px 10px 0;
+  gap: 7px;
+  cursor: pointer;
+}
+
+.opcion input {
+  accent-color: #393939;
+}
+
+.oculto {
+  display: none;
+}
+
+.estado {
+  text-align: center;
+  margin-top: 18px;
+  line-height: 1.6;
+}
+
+.error { color: #a12f25; }
+.exito { color: #355b39; }
+
+/* 12. BANNER FINAL (FOTOS DESKTOP Y MOBILE) ----------------- */
+.cierre-boda {
+  width: 100%;
+  margin-top: 70px;
+}
+
+.portada-final {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.portada-final .imagen-final {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portada-final .foto-desktop {
+  display: block;
+  object-position: center 38%; /* encuadre elegido para desktop */
+}
+
+.portada-final .foto-mobile {
+  display: none;
+}
+
+.portada-final::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 35%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  pointer-events: none;
+}
+
+.texto-final {
+  position: absolute;
+  z-index: 2;
+  bottom: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  color: white;
+}
+
+.portada-final .logo-final {
+  display: block;
+  width: 200px;
+  height: auto;
+  margin: 0 auto 20px;
+  object-fit: contain;
+}
+
+.mensaje-final {
+  letter-spacing: 5px;
+  color: white;
+}
+
+/* 13. PIE DE PÁGINA ---------------------------------------- */
+footer {
+  width: 100%;
+  background-color: var(--negro);
+  color: var(--blanco);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+footer a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+/* 14. ANIMACIONES DE APARICIÓN ------------------------------ */
+.revelar {
+  opacity: 1;
+  transform: none;
+}
+
+.animaciones-activas .revelar {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.animaciones-activas .revelar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animaciones-activas .galeria-foto.revelar {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 1.1s ease,
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animaciones-activas .galeria-foto.revelar:nth-child(2n+1):not(.galeria-ancha) {
+  transform: translateX(-35px);
+}
+
+.animaciones-activas .galeria-foto.revelar:nth-child(2n):not(.galeria-ancha) {
+  transform: translateX(35px);
+}
+
+.animaciones-activas .galeria-foto.revelar.galeria-ancha {
+  transform: translateY(22px);
+}
+
+.animaciones-activas .galeria-foto.revelar.visible,
+.animaciones-activas .galeria-foto.revelar.visible:nth-child(2n+1),
+.animaciones-activas .galeria-foto.revelar.visible:nth-child(2n) {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* 15. RESPONSIVE: TABLET Y MOBILE -------------------------- */
+@media (max-width: 991px) {
+  .portada-boda {
+    height: 70vh;
+  }
+
+  .nombres {
+    font-size: 70px;
+  }
+
+  .portada-final {
+    height: 80vh;
+    height: 80svh;
+  }
+
+  .portada-final .foto-desktop {
+    display: none;
+  }
+
+  .portada-final .foto-mobile {
+    display: block;
+  }
+
+  .portada-final .logo-final {
+    width: 150px;
+  }
+
+  .texto-final {
+    bottom: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .portada-boda {
+    height: 80vh;
+    height: 80svh;
+  }
+
+  .portada-boda img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .texto-portada {
+    bottom: 50px;
+    width: 95%;
+  }
+
+  .nombres {
+    font-size: 65px;
+    line-height: 1.1;
+  }
+
+  .texto-portada h3 {
+    font-size: 16px;
+    letter-spacing: 4px;
+  }
+
+  .altura {
+    min-height: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  #countdown {
+    gap: 15px;
+  }
+
+  #countdown .time span {
+    font-size: 1.6rem;
+  }
+
+  #countdown .time small {
+    font-size: 0.75rem;
+  }
+
+  .celebracion {
+    margin-top: 80px;
+  }
+
+  .titulo {
+    font-size: 22px;
+  }
+
+  .fecha-evento {
+    gap: 25px;
+    padding: 20px 10px;
+  }
+
+  .fecha,
+  .hora {
+    font-size: 26px;
+  }
+
+  .hora span {
+    font-size: 14px;
+  }
+
+  .separador {
+    height: 75px;
+  }
+
+  .button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .galeria-personalizada {
+    gap: 6px;
+  }
+
+  .galeria-personalizada .galeria-foto {
+    border-radius: 10px;
+  }
+
+  #imagenAmpliada {
+    max-width: 92vw;
+    max-height: 75vh;
+  }
+
+  .visor-anterior { left: 8px; }
+  .visor-siguiente { right: 8px; }
+  .visor-cerrar { top: 15px; right: 15px; }
+
+  .visor-anterior,
+  .visor-siguiente {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-regalos { padding: 10px; }
+  .modal-regalos p { font-size: 14px; }
+
+  .btn-copiar {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  footer p { font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  .formulario { padding: 24px 18px; }
+  h2 { font-size: 20px; }
+}
+
+/* 16. ACCESIBILIDAD: MOVIMIENTO REDUCIDO ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .animaciones-activas .revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animaciones-activas .galeria-foto.revelar {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
